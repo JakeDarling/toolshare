@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  {% load staticfiles %}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>{% block title %}ToolShare{% endblock %}</title>
+  <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/jquery-ui-1.10.3/ui/jquery-ui.js" %}"></script>
+  <link href="{% static "css/main.css" %}" rel="stylesheet" type="text/css" />
+  <link href="{% static "css/Form-Style.css" %}" rel="stylesheet" type="text/css" />
+  <link href="{% static "js/jquery-ui-1.10.3/themes/base/jquery-ui.css" %}" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="{% static "js/main.js" %}"></script>
+  </head>
+
+  <body>
+<div id="HeaderBackground"></div>
+<div id="PageWrap">
+	<div id="Header">
+		<div class="mainmenu">
+			<ul>
+				<li class="logout" title="Log Out"><a href="{% url 'logout' %}" class="menu"><span></span></a></li>
+				<li class="account" title="Account Details"><a href="{% url 'editInfo' %}" class="menu"><span></span></a></li>
+				<li class="notify" title="Notifications"><a href="{% url 'notifications:view_notifications' %}" class="menu"><span></span></a></li>
+			</ul>
+		</div>
+		<div id="Logo"><a href="{% url 'home' %}"><div style="height:9.37em;width:37.5em;"></div></a></div>
+	</div>
+	<div id="ContentWrap">
+		<div id="Body">
+			<div class="apphead">
+			<center>
+				{% block content1%}{% endblock %}
+			</center>
+			</div>
+			<div class="appbody">
+				{% block content2%}{% endblock %}
+			</div>
+		</div>
+		<div id="Footer">
+		  <center>  Copyright  2013 by Software Engineering Team E. All Rights Reserved.  </center>
+		</div>
+	</div>
+</div>
+</body>
+</html>

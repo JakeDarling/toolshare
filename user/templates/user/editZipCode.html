@@ -1,0 +1,32 @@
+{% extends "user/base.html" %}
+
+{% block content1 %}
+	<center> <h1>Edit Zip Code</h1></center>
+{% endblock %}
+
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+<h1>Edit Zip Code</h1>
+<br>
+
+<form action="{% url 'editZipCode' %}" method="post">
+{% csrf_token %}
+	<label class="description">New Zip Code</label>
+	{{ form.zipcode }}
+    <br/>
+
+ 
+<input id="saveForm" class="button_text" type="submit" name="submit" value="Done" />
+</br>
+</form>
+
+<a href="../editInfo">Cancel</a>
+
+<p>Note: You can only change your zip code if you do not currently have
+a tool on loan and all tools belonging to you are in a private shed</p>
+
+</div>
+</div>
+{% endblock %}

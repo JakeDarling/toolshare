@@ -1,0 +1,14 @@
+{% extends "shed/base.html" %}
+{% block content1 %}
+<h1>Welcome to the Shed Menu!</h1>
+{% endblock %}
+{% block content2 %}
+<center>
+<div class="appmenu">
+	<ul>
+		<li class="viewShed" title="View Sheds"><a href={% url 'shed:viewSheds' %} class="menu"></a></li>
+		<li class="addShed" title="Add Sheds"><a href={% url 'shed:addForm' %} class="menu"></a></li>
+	</ul>
+</div>
+</center>
+{% endblock %}

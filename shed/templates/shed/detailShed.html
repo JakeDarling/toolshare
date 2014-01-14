@@ -1,0 +1,46 @@
+{% extends "shed/base.html" %}
+
+{% block content1 %}
+	<h1>Shed Details</h1>
+{% endblock %}
+
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+{% if tool_list %}
+
+    {% for tool in tool_list %}
+    <ul>
+        <li><a href={% url 'tools:detail' tool.id %}>{{ tool.name }}</a></li>
+        <li>{{ tool.owner_string }}</li>
+        <li>{{ tool.borrower_string }}</li>
+        <li>{{ tool.shed_string }}</li>
+        
+    {% if tool.availability == 1 %}
+        <li>Available</li>
+    {% else %}
+        <li>Unavailable</li>
+    {% endif %}
+
+    {% if request.user.id == tool.owner_id %}
+        <li><a href={% url 'tools:editToolForm' tool.id %}>Edit</a></li>
+    {% endif %}
+
+    {% if request.user.id == tool.owner_id or shed.owner_id == request.user.id %}
+        <li><a href={% url 'tools:remove' tool.id %}>Remove</a></li>
+    {% endif %}
+
+    </ul>
+    {% endfor %}
+
+{% else %}
+
+<p>There are no Tools in this Shed.</p>
+
+{% endif %}
+
+<a href={% url 'shed:viewSheds' %}>Back to Shed List</a>
+</div>
+</div>
+{% endblock %}

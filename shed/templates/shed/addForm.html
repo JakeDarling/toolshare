@@ -1,0 +1,42 @@
+{% extends "shed/base.html" %}
+{% block content1 %}
+	<h1>Add Shed</h1>
+{% endblock %}
+
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="{% url 'shed:add' %}" method="post">
+   {% csrf_token %}
+<p><label for="id_name">Shed Name:</label>
+    <input id="id_name" type="text" name="name" maxlength="30" /></p>
+
+<p><label for="id_address_one">Address 1:</label>
+    <input id="id_address_one" type="text" name="address_one" /></p>
+
+<p><label for="id_address_two">Address 2:</label>
+    <input id="id_address_two" type="text" name="address_two" /></p>
+
+<p><label for="id_zipcode">Zipcode:</label>
+    <input id="id_zipcode" type="text" name="zipcode" /></p>
+
+<p><label for="id_private">Private?</label>
+    <input id="id_private" type="checkbox" name="private" />Yes</p>
+
+<input type="submit" value="Submit" class="button_text"/>
+</form>
+<div class="back"><a href={% url 'shed:index' %} class="menu"></a> </div>
+</div>
+</div>
+
+{% endblock %}

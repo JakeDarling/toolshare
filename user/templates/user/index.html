@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+
+{% block content1 %}
+	<h1 align="center"> Main Menu </h1>
+{% endblock %}
+{% block content2 %}
+<center>
+	<div class="appmenu">
+		<ul>
+		<li class="Tools" title="Tools"><a href="{% url 'tools:index' %}" class="menu"></a></li>
+			<li class="Sheds" title="Sheds"><a href="{% url 'shed:index' %}" class="menu"></a></li>
+			<li class="Statistics" title="Community Statistics"><a href="{% url 'viewStatistics' %}" class="menu"></a></li>
+		</ul>
+	</div>
+</center>
+{% endblock %}

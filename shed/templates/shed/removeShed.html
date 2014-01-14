@@ -1,0 +1,28 @@
+{% extends "shed/base.html" %}
+{% block content1 %}
+	<h1>Shed List</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+<h1>Shed List</h1>
+<p>The shed has been removed.</p>
+<body>
+{% for shed in shed_list %}
+<ul>
+    <li><a href={% url 'shed:detailShed' shed.id %}>{{ shed.name }}</a></li>
+    <li>{{ shed.owner_string }}</li>
+    <li>{{ shed.address_one }}</li>
+    <li>{{ shed.address_two }}</li>
+    <li>{{ shed.zipcode }}</li>
+</ul>
+{% endfor %}
+</body>
+
+<a href={% url 'shed:index' %}>Return to Shed Menu</a>
+
+</div>
+</div>
+{% endblock %}
+

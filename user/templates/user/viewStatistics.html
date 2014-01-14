@@ -1,0 +1,41 @@
+{% extends "user/base.html" %}
+
+{% block content1 %}
+
+<center> <h1>Community Statistics</h1> </center>
+
+{% endblock %}
+
+{% block content2 %}
+<div class="statisticlistwrap">
+<div class="statisticlist">
+<center>
+<ul>
+	<li><b>Top 5 Borrowed Tools</b></li>
+	{% for tool in sorted_tools %}
+	<li>{{ tool.name }}: Used {{ tool.usage_count }}</li>
+	{% endfor %}
+</ul>
+<br />
+
+<ul>
+	<li><b>Top 5 Borrowers</b></li>
+	{% for borrower in sorted_borrower %}
+	<li>{{ borrower.fname }}: Borrowed {{ borrower.borrow_counter }}</li>
+	{% endfor %}
+</ul>
+<br />
+
+<ul>
+	<li><b>Top 5 Lenders</b></li>
+	{% for lender in sorted_lender %}
+	<li>{{ lender.fname }}: Lent {{ lender.lend_counter }}</li>
+	{% endfor %}
+</ul>
+</center>
+</div>
+</div>
+<center>
+<div class="back"><a href={% url 'index' %} class="menu"></a></div>
+</center>
+{% endblock %}

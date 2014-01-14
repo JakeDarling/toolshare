@@ -1,0 +1,59 @@
+{% extends "shed/base.html" %}
+{% block content1 %}
+	<h1>Shed List</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+<div class="viewtablewrap">
+<div class="viewtableshed">
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li class="message">{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% if shed_list %}
+<ul>
+				<li class="headname">Shed</li>
+				<li class="head"> Owner </li>
+				<li class="headaddress">Address</li>
+				<li class="head">Zipcode</li>
+				<li class="head">Public/Private</li>
+				<li class="headedit"> Edit </li>
+				<li class="headremove"> Remove </li>
+</ul>
+
+{% for shed in shed_list %}
+<ul>
+    <li class="name"><a href={% url 'shed:detailShed' shed.id %}>{{ shed.name }}</a></li>
+    <li>Owner: {{ shed.owner_string }}</li>
+    <li class="address">Address: {{ shed.address_one }} {{ shed.address_two }}</li>
+    <li>Zipcode: {{ shed.zipcode }}</li>
+    {% if shed.private == 0 %}
+    <li>Public</li>
+    {% else %}
+    <li>Private</li>
+    {% endif %}
+
+    {% if shed.owner_id == request.user.id %}
+    <li class="edit"><a href={% url 'shed:editShed' shed.id %}>Edit</a></li>
+    <li class="remove"><a href={% url 'shed:removeShed' shed.id %}>Remove</a></li>
+    {% endif %}
+</ul>
+{% endfor %}
+
+
+{% else %}
+<p>There are no sheds in your sharezone, would you like to <a href={% url 'shed:addForm' %}>add one?</a></p>
+{% endif %}
+</div>
+</div>
+<center>
+<div class="back"><a href={% url 'shed:index' %} class="menu"></a> </div>
+</center>
+
+</div>
+{% endblock %}

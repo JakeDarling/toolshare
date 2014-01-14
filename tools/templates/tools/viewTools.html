@@ -1,0 +1,65 @@
+{% extends "tools/base.html"%}
+{% block content1 %}
+<h1>Tool List</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+	<div class="viewtablewrap">
+		<div class="viewtable"> {% if messages %}
+			<ul>
+				{% for message in messages %}
+				<li class="message">{{ message }} </li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			
+			<ul>
+				<li class="headname">Tool</li>
+				<li class="head">Owner</li>
+				<li class="head">Borrower</li>
+				<li class="head">Shed</li>
+				<li class="head">Status/Return Date</li>
+				<li class="headedit"> Edit </li>
+				<li class="headremove"> Remove </li>
+				<li class="headreturn">Return</li>
+			</ul>
+			
+			{% for tool in tool_list %}
+			<div class="viewtablewrap">
+				<div class="viewtable">
+					<ul>
+						{% if tool.zipcode == request.user.zipcode %}
+						<li class="name"><a href={% url 'tools:detail' tool.id %}>{{ tool.name }}</a></li>
+						<li>{{ tool.owner_string }}</li>
+						<li>{{ tool.borrower_string }}</li>
+						<li>{{ tool.shed_string }}</li>
+						{% if tool.availability == 1 or tool.availability == 2 %}
+						<li>Available</li>
+						{% elif tool.availability == 0 %}
+						<li>{{ tool.return_date }}</li>
+						{% elif tool.availability == 3 %}
+						<li>Not Returned</li>
+						{% endif %}
+						
+						{% if request.user.id == tool.owner_id %}
+						<li class="edit"><a href={% url 'tools:editToolForm' tool.id %}>Edit</a></li>
+						<li class="remove"><a href={% url 'tools:remove' tool.id %}>Remove</a></li>
+						{% endif %}
+						
+						{% if tool.borrower_id == request.user.id %}
+						<li class="return"><a href={% url 'tools:returnTool' tool.id %}>Return</a></li>
+						{% endif %}
+						
+						
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+			{% endfor %} </div>
+	</div>
+	<center>
+		<div class="back"><a href={% url 'tools:index' %} class="menu"></a> </div>
+	</center>
+</div>
+</div>
+{% endblock %} 

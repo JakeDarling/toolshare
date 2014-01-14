@@ -1,0 +1,18 @@
+<form action="{% url 'tools:borrowTool' tool.id %}" method="post">
+{% csrf_token %}
+<p><label for="id_date">Return Date:</label>
+
+    <select id="id_return_date" type="text" name="return_date" >
+
+    {% for date in dates_list %}
+
+    <option value={{ date }}>{{ date }}</option>
+
+    {% endfor %}
+
+    </select>
+
+    </p>
+
+    <input type='submit' class="button_text">
+</form>

@@ -1,0 +1,64 @@
+{% extends "tools/base.html"%}
+
+{% block content1 %}
+<center>
+	<h1>{{ tool.name }}</h1>
+</center>
+{% endblock %}
+
+{% block content2 %}
+<div class="form">
+	<div class="formwrap">
+	<div class="detaillist">
+		<ul>
+			<li><img src="{{ MEDIA_URL }}{{ tool.image }}" width=450 height=450/></li>
+			<li>Owner: {{ tool.owner_string }}</li>
+			<li>Borrower: {{ tool.borrower_string }}</li>
+			<li>Shed: {{ tool.shed_string }}</li>
+			<li>
+			Date Added: {{ tool.creation_date }}
+			
+			{% if tool.availability == 1 or tool.availability == 2 %}
+			{% if tool.owner_id != request.user.id %}
+			<form action="{% url 'tools:borrowTool' tool.id %}" method="post">
+				{% csrf_token %}
+				<li>
+				<label for="id_date">Borrow Until:</label>
+				<select id="id_return_date" type="text" name="return_date" >
+					
+					
+
+            {% for date in dates_list %}
+
+            
+					
+					<option value={{ date }}>{{ date }}</option>
+					
+					
+
+            {% endfor %}
+
+            
+				
+				</select>
+				<input type='submit' class="button_text">
+				</li>
+				{% endif %}
+				
+				
+				{% else %}
+				<li>Return Date: {{ tool.return_date }}</li>
+				{% endif %}
+				<li>Description: {{ tool.description }}</li>
+			</form>
+			</li>
+		</ul>
+	</div>
+</div>
+</div>
+<center>
+	<div class="back"><a href={% url 'tools:viewTools' %} class="menu"></a></div>
+</center>
+</div>
+</div>
+{% endblock %} 

@@ -1,0 +1,36 @@
+{% extends "shed/base.html" %}
+{% block content1 %}
+	<h1>Edit Shed</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="{% url 'shed:editShed' shed.id %}" method="post">
+{% csrf_token %}
+<p><label for="id_name">Shed Name:</label>
+{{ form.name }}
+
+<p><label for="id_address_one">Address 1:</label>
+{{ form.address_one }}
+
+<p><label for="id_address_two">Address 2:</label>
+{{ form.address_two }}
+
+<br/>
+<input type="submit" value="Submit" class="button_text"/>
+</form>
+<a href={% url 'shed:index' %}>Cancel</a>
+</div>
+</div>
+
+{% endblock %}

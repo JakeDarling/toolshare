@@ -1,0 +1,41 @@
+{% extends "user/base.html" %}
+
+{% block content1%}
+	<h1>Account Management</h1>
+{% endblock %}
+{% block content2%}
+
+<div class="form">
+<div class="formwrap">
+
+<form action="{% url 'editInfoSubmit' %}" method="post">
+{% csrf_token %}
+		<label class="description">First Name</label>
+		{{ form.fname }}
+		<label class="description">Last Name </label>
+		{{ form.lname }}
+		<label class="description">Address </label>
+		{{ form.address }}
+		<br/><br />
+
+		<a href="{% url 'changePassword' %}" method="post">Change Password</a>
+ <br /><br />
+
+<a href="{% url 'editZipCode' %}" method="post">Change Zip Code</a>
+<br/><br />
+
+
+
+<p>Note: You can only change your zip code if you do not currently have
+a tool on loan and all tools belonging to you are in a private shed</p>
+        <br>
+
+
+
+<input id="saveForm" class="button_text" type="submit" name="submit" value="Done" />
+
+</form>
+
+</div>
+</div>
+{% endblock %}

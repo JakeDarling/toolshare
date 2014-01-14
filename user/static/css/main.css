@@ -1,0 +1,484 @@
+
+/* Div Layour */
+
+html {
+	background: rgba(255,240,217,.6);
+	width: 100%;
+}
+
+img, object, embed, video {
+	max-width: 100%;
+}
+
+p {
+	color:rgba(51,51,51,1);
+	margin: 0;
+}
+
+h1 {
+	color:rgba(51,51,51,1);
+	font-weight: bold;
+	margin: 5px;
+
+}
+
+/* Div Layout */
+
+
+#HeaderBackground {
+	position: absolute;
+	width: 100%;
+	height: 9.375em;
+	background:rgba(153,0,0,1);
+	top: 0px;
+	left: 0px;
+	border-top:rgba(102,0,0,1) 8px solid;
+	border-bottom:rgba(102,0,0,1) 5px solid;
+}
+
+#Header {
+	position: relative;
+	width: 100%;
+	height: 9.375em;
+}
+
+#Logo {
+	position: relative;
+	width: 37.5em;
+	height: 9.37em;
+	background: url(../Images/logo.png) no-repeat;
+}
+
+#PageWrap {
+	position: relative;
+	width: 75em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#Body {
+	position: relative;
+	width: 75em;
+	background:rgba(0,0,0,.2);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#ContentWrap {
+	position: relative;
+	width: 75em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+}
+
+#Footer {
+	width: 75em;
+	max-width:1200px;
+	position: relative;
+	margin-top: 1.25em;
+	background-color: rgba(102,102,102,.8);
+	height: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom-left-radius: 1.25em;
+	border-bottom-right-radius: 1.25em;
+	color:rgba(255,255,255,1);
+	font-size:1.313em;
+	padding-top:.313em;
+}
+
+/* Main Menu */
+
+
+.mainmenu ul {
+	padding: 0;
+	margin: 0;
+	float: right !important;
+	z-index:9999;
+}
+
+.mainmenu ul li.account {
+	display: inline-block;
+	width: 9.375em;
+	height: 9.375em;
+	background: url(../Images/Account.png) no-repeat;
+}
+
+.mainmenu ul li.logout {
+	display: inline-block;
+	width: 9.375em;
+	height: 9.375em;
+	background: url(../Images/LogOut.png) no-repeat;
+}
+
+.mainmenu ul li.notify {
+	display: inline-block;
+	width: 9.375em;
+	height: 9.375em;
+	background: url(../Images/Notification.png) no-repeat;
+}
+
+.mainmenu ul li a{
+	display: inline-block;
+	height: 9.375em;
+	width: 9.375em;
+	text-align: center;
+	text-decoration: none;
+}
+
+.mainmenu ul li a span {
+	position: relative;
+	top: 40%;
+}
+
+/* App Menu */
+
+
+.apphead {
+	width: 100%;
+	height: 3.125em;
+	background:rgba(204,0,0,.5);
+	alignment-adjust: central;
+	border-bottom:rgba(153,0,0,1) 6px solid;
+	padding-top:5px;
+}
+
+.appbody {
+	width: 100%;
+	padding-top: .313em;
+	border-bottom:rgba(153,0,0,1) 6px solid;
+	padding-bottom: .313em;
+}
+
+.appmenu {
+	
+}
+
+.appmenu ul {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+.appmenu ul li {
+	display: inline-block;
+	width: 12.500em;
+	height: 12.500em;
+}
+
+.appmenu ul li.Tools {
+
+	background: url(../Images/Tools.png) no-repeat;
+}
+
+.appmenu ul li.Sheds {
+
+	background: url(../Images/Sheds.png) no-repeat;
+}
+
+.appmenu ul li a{
+	display: inline-block;
+	height: 12.500em;
+	width: 12.500em;
+	text-align: center;
+	text-decoration: none;
+}
+
+.appmenu ul li.addShed {
+	background: url(../Images/addShed.png) no-repeat;
+}
+
+.appmenu ul li.viewShed {
+	background: url(../Images/viewShed.png) no-repeat;
+}
+
+.appmenu ul li.addTool {
+	background: url(../Images/addTool.png) no-repeat;
+}
+
+.appmenu ul li.viewTool {
+	background: url(../Images/viewTool.png) no-repeat;
+}
+
+.appmenu ul li.viewMyTool {
+	background: url(../Images/myTools.png) no-repeat;
+}
+
+.appmenu ul li.viewBorrowedTool {
+	background: url(../Images/borrowedTools.png) no-repeat;
+}
+
+.appmenu ul li.Statistics{
+	background: url(../Images/statistics.png) no-repeat;
+}
+
+.back a{
+	display: inline-block;
+	height: 4.688em;
+	width: 4.688em;
+	background: url(../Images/back.png) no-repeat;
+}	
+
+.spinnerwrap input{
+	border:none;
+		
+}
+/* View Table */
+
+.viewtable ul{
+	overflow:hidden;
+	margin-top:1px;
+	padding:0;
+	max-width:100%;
+}
+
+.viewtable ul li{
+	display:inline-block;
+	height:1.563em;
+	width:8em;
+	background:rgba(255,255,255,.4);
+	padding:0px;
+	text-align:center;
+}
+
+.viewtable ul li.head{
+	background:rgba(153,153,153,1);
+	
+}
+.viewtable ul li.headname{
+	width: 9em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtable ul li.name{
+	width: 9em;
+	background:rgba(153,0,0,1);
+	color:rgba(255,255,255,1);
+}
+
+.viewtable ul li.headedit{
+	width:5em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtable ul li.headreturn{
+	width:5em;
+	background:rgba(153,153,153,1);
+}
+
+
+.viewtable ul li.headremove{
+	width:5.5em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtable ul li.name:hover{
+	background:rgba(204,0,0,1);
+}
+
+.viewtable ul li.name a{
+	color:rgba(204,204,204,1);
+}
+
+.viewtable ul li.name a:hover{
+	color:rgba(255,255,255,1);
+}
+
+.viewtable ul li.remove{
+	width:5.5em;
+	background:rgba(255,255,153,.7);
+}
+
+.viewtable ul li.edit{
+	width:5em;
+	background:rgba(153,0,0,.4);
+}
+
+.viewtable ul li.return{
+	width:5em;
+	background:rgba(204,0,0,.5);
+}
+
+.viewtable ul li.message{
+	width:100%;
+	height:auto;	
+}
+
+.viewtablewrap {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:62.5em;
+}	
+
+/* Notification Table */
+
+.notificationtable ul li{
+	width:100%;	
+}
+
+/* Placeholders */
+
+.pictureplaceholder{
+	background:rgba(153,0,0,.3);
+	widht:37.5em;
+	height:20.5em;
+	position:relative;
+	magrin-right:auto;
+	margin-left:auto;	
+}
+
+/* View table for Sheds */
+
+.viewtableshed ul{
+	overflow:hidden;
+	margin-top:1px;
+	padding:0;
+	max-width:100%;
+}
+
+.viewtableshed ul li{
+	display:inline-block;
+	height:1.5em;
+	width:8em;
+	background:rgba(255,255,255,.4);
+	padding:0px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.viewtableshed ul li.address{
+	display:inline-block;
+	height:1.5em;
+	width:14em;
+	background:rgba(255,255,255,.4);
+	padding:0px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.viewtableshed ul li.head{
+	background:rgba(153,153,153,1);	
+}
+
+.viewtableshed ul li.headaddress{
+	width:14em;
+	background:rgba(153,153,153,1);
+
+}
+
+.viewtableshed ul li.headedit{
+	width:5em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtableshed ul li.headremove{
+	width:5.5em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtableshed ul li.headname{
+	width: 9em;
+	background:rgba(153,153,153,1);
+}
+
+.viewtableshed ul li.name{
+	width: 9em;
+	background:rgba(153,0,0,1);
+	color:rgba(255,255,255,1);
+}
+
+.viewtableshed ul li.name:hover{
+	background:rgba(204,0,0,1);
+}
+
+.viewtableshed ul li.name a{
+	color:rgba(204,204,204,1);
+}
+
+.viewtableshed ul li.name a:hover{
+	color:rgba(255,255,255,1);
+}
+
+.viewtableshed ul li.edit{
+	width:5em;
+	background:rgba(153,0,0,.4);
+}
+.viewtableshed ul li.remove{
+	width:5.5em;
+	background:rgba(255,255,153,.7);
+}
+
+.viewtableshed ul li.message{
+	width:100%;
+	height:auto;	
+}
+/* Tool Detail */
+
+.detaillist ul{
+	margin:0;
+	padding:0;
+	max-width:100%;
+}
+
+.detaillist ul li{
+	display:inline-table;
+	width:28.125em;
+	height:1.5em;
+	background:rgba(255,255,255,.6);
+	text-align:center;
+	margin-top:5px;
+}
+
+/* Statistic List */
+
+.statisticlist ul{
+	margin:0;
+	padding:0;
+	max-width:100%;
+}
+
+.statisticlist ul li{
+	display:block;
+	width:25em;
+	height:1.5em;
+	background:rgba(255,255,255,.6);
+	text-align:center;
+	margin-top:5px;
+}
+.statisticlistwrap {
+	position:relative;
+	padding:1em;
+	width:35em;
+	margin-bottom:.2em;
+	margin-left:auto;
+	margin-right:auto;
+	background:rgba(51,51,51,.2);	
+}
+
+/* Notifications */
+
+.notifications ul{
+	margin:0;
+	padding:0;
+	max-width:100%;
+}
+
+.notifications ul li{
+	display:block;
+	width:auto;
+	height:auto;
+	background:rgba(255,255,255,.6);
+	text-align:left;
+	margin-top:5px;
+}
+
+/* Description */
+.description p{
+	background:rgba(153,153,153,.3);	
+}

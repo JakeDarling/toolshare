@@ -1,0 +1,97 @@
+{% extends "notifications/base.html"%}
+{% block content1 %}
+<h1>Your Notifications</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+<div class="notifications"> {% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li>{{ message }} </li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	<br />
+
+	
+	{% for n in notification_list %}
+	<ul>
+		<li>{{ n.notif_msg }}</li>
+		<li>{% if n.not_type == 0 %}
+			{{ n.sender_string }} borrowed your 
+			{{ n.tool_string }} 
+			from shed 
+			{{ n.shed_string }}.
+			He/she will return it by {{ n.return_date }}. </li>
+		{% elif n.not_type == 1 %}
+		<li> {{ n.sender_string }} would like to borrow your
+			{{ n.tool_string }} 
+			from your private shed 
+			{{ n.shed_string }} 
+			until {{ n.return_date }}. <br/>
+			{% if n.message|length != 1 %}
+			He/she has included the following message: <br/>
+			{{ n.message }}<br/>
+			{% endif %}
+			Will you allow him to borrow the tool?<br/>
+			{% if n.read == 1 and n.tool_id %} <a href={% url 'tools:borrowPrivateTool' n.tool_id n.sender_id n.return_date  n.timestamp %}>Yes</a> </br>
+			<a href={% url 'tools:denyRequestForm' n.tool_id n.sender_id n.timestamp %}>No</a> {% endif %} </li>
+		{% elif n.not_type == 2 %}
+		<li> {{ n.sender_string }} returned your
+			{{ n.tool_string }}
+			to shed 
+			{{ n.shed_string }}.
+			It is now available again. </li>
+		{% elif n.not_type == 3 %}
+		<li> {{ n.sender_string }} indicated that he returned your 
+			{{ n.tool_string }} 
+			to your private shed
+			{{ n.shed_string }}.
+			You must confirm that he returned your tool before it will be available again. <br/>
+			If he has not returned it, you will need to get in contact and resolve the dispute. 
+			Once resolved, you will need to mark the tool returned.
+			
+			{% if n.read == 1 %} <a href={% url 'tools:returnConfirmation' n.tool_id n.timestamp %}>Confirm Tool Returned</a> <a href={% url 'tools:denyConfirmation' n.tool_id n.timestamp %}>Deny Tool Returned</a> {% endif %} </li>
+		{% elif n.not_type == 4 %}
+		<li> {{ n.sender_string }} claims that you did not return the 
+			{{ n.tool_string }} 
+			you borrowed to the shed 
+			{{ n.shed_string }}.<br/>
+			Please contact {{ n.sender_string }} and settle the dispute. He/she will need
+			to mark the tool as returned. </li>
+		{% elif n.not_type == 5 %}
+		<li> You may now pick up
+			{{ n.tool_string }} 
+			from shed 
+			{{ n.shed_string }}.<br/>
+			Be sure to return it by {{ n.return_date }} </li>
+		{% elif n.not_type == 6 %}
+		<li> You have requested to borrow {{ n.sender_string }}'s 
+			{{ n.tool_string }} 
+			from private shed
+			{{ n.shed_string }}.<br/>
+			He/she will confirm or deny your request when they receives it. </li>
+		{% elif n.not_type == 7 %}
+		<li> {{ n.sender_string }} denied your request to borrow
+			{{ n.tool_string }} 
+			from shed
+			{{ n.shed_string }}.<br/>
+			He/she has included the following reason for denial: <br/>
+			{{ n.message }} </li>
+		{% elif n.not_type == 8 %}
+		<li> {{ n.tool_string }} has not been returned by the expected return date. Please
+			settle this conflict by contacting {{ sender_string }}. Once resolved, please
+			set the tool as available. </li>
+		{% elif n.not_type == 9 %}
+		<li> {{ n.tool_string }} has not been returned by the expected return date. Please
+			settle this conflict by contacting {{ sender_string }}.
+			
+			{% endif %} </li>
+	</ul>
+	{% endfor %} 
+	<center>
+	<a href={% url 'notifications:view_more' counter %}>Display More Notifications</a> 
+	</center>
+	</div>
+	</div>
+{% endblock %} 

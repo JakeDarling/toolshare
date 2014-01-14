@@ -1,0 +1,69 @@
+{% extends "user/baselogin.html" %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if new %}
+<p>Thank you for registering, now please log in to use ToolShare</p>
+{% endif %}
+
+{% block content %}
+<div class="splitter">
+    <h1>Welcome to ToolShare</h1>
+    
+    <p> The all in one toolsharing system! Log-in or <a href="{% url 'registerForm' %}" method="post"> Register </a></p>
+    
+</div>
+<div class="formwrap">
+
+<form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+{% csrf_token %}
+
+<ul>
+	<li>
+    	{{ form.username.label_tag }}
+		{{ form.username }}
+    </li>
+    <li>
+		{{ form.password.label_tag }}
+		{{ form.password }}
+	</li>
+	<li>
+		<input type="submit" value="login" class="button_text"/>
+		<input type="hidden" name="next" value="../" />
+    </li>
+</ul>
+</form>
+</div>
+<div class="description">
+<div id="info">
+	<div class="details">
+	<center>
+	<h2>Beneficial to Everyone</h2>
+		<p>Got tools laying around that you rarely use? Need to borrow a
+		 bandsaw for a project? ToolShare is here to help! ToolShare provides an easy-to-use interface for sharing tools within a community. Users in the same zip code can freely share items
+		 with other members.</p>
+		<h2>How it Works</h2>
+		<p>There are two options for sharing tools, you can either</p>
+		<ul>
+			<li>Keep the tool at home or other private location and only share it with people who ask for it.</li>
+            <li>OR</li>
+            <li>Place the tool in a "community shed" where anyone who needs
+            it can borrow it.</li>
+		</ul>
+        <p>Anyone can add tools to a community shed. Creating a community shed makes you the manager of the shed. At community sheds, tools are free to come and go any time. Tools at these locations can be rented out just by clicking the borrow button.</p>
+        <p>Private sheds are typically places like your house or another location you privately own. Only the owner of a private shed can add tools to it and anyone wishing to borrow from a private shed has to first request permission from the shed owner.</p>
+
+    </div>
+    <div class="details">
+    <h2>Getting Started</h2>
+        <p>The first thing to do is set up a community or private shed and add some tools to it. Then other users will be able to start borrowing your tools. If at any time you don't want others to borrow one of your tools, you can either remove that tool from the system or change its availability to unavailable.</p>
+	</div>
+	</center>
+    </div>
+	</div>
+
+{% endblock %}
+
+

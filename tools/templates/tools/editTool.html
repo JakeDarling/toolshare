@@ -1,0 +1,56 @@
+{% extends "tools/base.html"%}
+{% block content1 %}
+<h1 align="center"> Edit Tool </h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+<div class="formwrap">
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+<center>
+<form action="{% url 'tools:editSubmit' tool.id %}" method="post">
+{% csrf_token %}
+
+<p>Tool Name</p>
+{{ form.name }}
+
+<p>Description</p>
+{{ form.description }}
+
+<p><label for="id_shed">Shed:</label>
+			<div class="selectstyle">
+            <select id="id_shed" type="text" name="shed_id" >
+
+            {% for shed in shed_list %}
+
+            <option value={{ shed.id }}>{{ shed.name }}</option>
+
+            {% endfor %}
+
+            </select>
+			</div>
+
+            </p>
+
+        <p><label for="id_return_date_limit">Specify borrow interval(in days):</label>
+		<div class="spinnerwrap">
+        <input id="id_return_date_limit" class="spinner" type="integer" name="return_date_limit" >
+		</div>
+        </p>
+<label for="id_image">Upload Image:</label>
+            <input id="id_image" type="file" name="image" >
+
+
+</br>
+<input id="saveForm" class="button_text" type="submit" name="submit" value="Done" />
+</form>
+</center>
+</div>
+</div>
+{% endblock %}

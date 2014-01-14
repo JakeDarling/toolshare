@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/Login-Style.css" %}" media="all">
+    <title>{% block title %}Welcome to ToolShare{% endblock %}</title>
+</head>
+
+<body>
+	<div id="Logo"><img src="{% static "Images/logologon.png" %}" ></div>
+	<div id="Content">
+    
+    <div class="form">
+    <div class="login">
+   
+    
+        {% block content %}{% endblock %}
+ 
+    </div>
+    </div>
+    </div>
+    </body>
+</body>
+</html>

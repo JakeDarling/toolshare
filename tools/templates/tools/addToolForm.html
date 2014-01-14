@@ -1,0 +1,60 @@
+{% extends "tools/base.html"%}
+{% block content1 %}
+<h1>{{ title }}</h1>
+{% endblock %}
+{% block content2 %}
+<div class="form">
+	<div class="formwrap"> {% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }} </li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		<center>
+		<form action="{% url 'tools:addTool' %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<label for="id_name">Tool Name:</label>
+			<input id="id_name" type="text" name="name" maxlength="30" />
+			<label for="id_description">Tool Description:</label>
+			<input id="id_description" type="text" name="description" maxlength="500" />
+			<label for="id_shed">Shed:</label>
+			<div class="selectstyle">
+			<select id="id_shed" type="text" name="shed_id" >
+				
+				
+					
+
+        {% for shed in shed_list %}
+
+        
+					
+				
+				<option value={{ shed.id }}>{{ shed.name }}</option>
+				
+				
+					
+
+        {% endfor %}
+
+        
+				
+			
+			</select>
+			</div>
+			
+			<label for="id_return_date_limit">Specify borrow interval(in days):</label>
+			<div class="spinnerwrap">
+				<input id="id_return_date_limit" class="spinner" type="integer" name="return_date_limit" >
+			</div>
+			<label for="id_image">Upload Image:</label>
+			<input id="id_image" type="file" name="image" >
+			<br />
+
+			<input type='submit' class="button_text">
+		</form>
+		</center>
+		<div class="back"><a href={% url 'tools:index' %} class="menu"></a> </div>
+	</div>
+</div>
+{% endblock %} 

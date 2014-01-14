@@ -1,0 +1,8 @@
+<form action="{% url 'tools:denyRequest' tool.id borrower_id timestamp %}" method="post">
+	{% csrf_token %}
+    <p><label for="id_reason">Reason:</label>
+        <input id="id_reason" type="text" name="reason" maxlength="200" /></p>
+
+<input type='submit' class="button_text">
+
+</form>

@@ -1,0 +1,26 @@
+{% extends "tools/base.html"%}
+{% block content1 %}
+<h1>Welcome to the Tools Menu!</h1>
+{% endblock %}
+{% block content2 %}
+
+{% if messages %}
+<ul>
+	{% for message in messages %}
+	<li>{{ message }} </li>
+	{% endfor %}
+</ul>
+{% endif %}
+<div class="appmenu">
+	<center>
+		<ul>
+			<li title="View My Tools" class="viewMyTool"><a href="{% url 'tools:viewMyTools' %}" class="menu"><span></span></a></li>
+			<li title="View Borrowed Tools" class="viewBorrowedTool"><a href="{% url 'tools:viewBorrowedTools' %}" class="menu"><span></span></a></li>
+			<li title="View Tools" class="viewTool"><a href="{% url 'tools:viewTools' %}" class="menu"><span></span></a></li>
+			<li title="Add Tool" class="addTool"><a href="{% url 'tools:addToolForm' %}" class="menu"><span></span></a></li>
+		</ul>
+	</center>
+</div>
+</div>
+</div>
+{% endblock %} 
